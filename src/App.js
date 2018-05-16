@@ -29,10 +29,8 @@ class App extends Component {
     const random_x = this.getRandomIntInclusive(0, frameWidth)
     const random_y = this.getRandomIntInclusive(0, frameHeight)
 
-    debugger
-
     return (
-      <div>
+      <div> 
         {[...Array(frameHeight)].map((x, i) =>
           <ul className="flex-container nowrap" key={i}>
             {[...Array(frameWidth)].map((_x, _i) =>

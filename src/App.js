@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 class App extends Component {
 
-  state = { width: 0, height: 0, key: 'n/a' }
+  state = { width: 0, height: 0 }
  
   componentWillMount(){
-
-    const frameWidth = parseInt( window.innerWidth / 20)
-    const frameHeight = parseInt( window.innerHeight / 20)
     
     this.setState(
       {
@@ -35,40 +33,62 @@ class App extends Component {
   }
 
   goToRight = () => {
+
+    const { timeout } = this.state;
+    clearTimeout(timeout);
     
     this.setState((prevState, props) => {
       return {position_x: prevState.position_x + 1};
     });
 
-    setTimeout( () => { this.goToRight() }, 100 );
+    this.setState({
+      timeout:  setTimeout( () => { this.goToRight() }, 100 )
+    })
   }
 
   goToLeft = () => {
+
+    const { timeout } = this.state;
+    clearTimeout(timeout);
 
     this.setState((prevState, props) => {
       return {position_x: prevState.position_x - 1};
     });
 
-    setTimeout( () => { this.goToLeft() }, 100 );
+    this.setState({
+      timeout:  setTimeout( () => { this.goToLeft() }, 100 )
+    })
+
+
   }
 
   goToUp = () => {
+
+    const { timeout } = this.state;
+    clearTimeout(timeout);
 
     this.setState((prevState, props) => {
       return {position_y: prevState.position_y - 1};
     });
 
-    setTimeout( () => { this.goToUp() }, 100 );
+    this.setState({
+      timeout:  setTimeout( () => { this.goToUp() }, 100 )
+    })
   }
 
 
   goToDown = () => {
 
+    const { timeout } = this.state;
+    clearTimeout(timeout);
+
     this.setState((prevState, props) => {
       return {position_y: prevState.position_y + 1};
     });
 
-    setTimeout( () => { this.goToDown() }, 100 );
+    this.setState({
+      timeout:  setTimeout( () => { this.goToDown() }, 100 )
+    })
   }
 
 

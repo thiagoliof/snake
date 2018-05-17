@@ -91,6 +91,10 @@ class App extends Component {
     })
   }
 
+  stop = () =>{
+    const { timeout } = this.state;
+    clearTimeout(timeout);
+  }
 
 
   getRandomIntInclusive = (min, max) => {
@@ -116,6 +120,7 @@ class App extends Component {
           <button onClick={() => this.goToDown()}>pra baixo</button>
           <button onClick={() => this.goToRight()}>pra direita</button>
           <button onClick={() => this.goToLeft()}>pra esquerda</button>
+          <button onClick={() => this.stop()}>parar</button>
         </div>
       </div>
     );

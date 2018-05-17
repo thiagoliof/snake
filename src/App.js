@@ -17,7 +17,6 @@ class App extends Component {
     ) 
 
     this.firstRandomPosition()
-    //this.goToDown()
   }
 
 
@@ -38,7 +37,9 @@ class App extends Component {
     clearTimeout(timeout);
     
     this.setState((prevState, props) => {
-      return {position_x: prevState.position_x + 1};
+      return {
+        position_x: prevState.position_x + 1,
+      };
     });
 
     this.setState({
@@ -116,7 +117,7 @@ class App extends Component {
           </ul>
         )}
         <div>
-        <button onClick={() => this.goToUp()}>pra cima</button>
+          <button onClick={() => this.goToUp()}>pra cima</button>
           <button onClick={() => this.goToDown()}>pra baixo</button>
           <button onClick={() => this.goToRight()}>pra direita</button>
           <button onClick={() => this.goToLeft()}>pra esquerda</button>
